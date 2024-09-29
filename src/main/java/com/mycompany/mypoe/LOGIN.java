@@ -4,7 +4,7 @@
  */
 package com.mycompany.mypoe;
 import java.util.Scanner;
-
+import java.util.regex.*;
 /**
  *
  * @author RC_Student_lab
@@ -28,6 +28,7 @@ public class LOGIN {
     }
      //creating a method
     public boolean checkUserName(){
+      
         //prompt the user to enter username
          System.out.println("enter username: ");
         username = sc.next();
@@ -40,20 +41,39 @@ public class LOGIN {
         //prompt the user to enter password
        System.out.println("Enter password: ");
         password = sc.next(); 
-        
+            System.out.println("");
         String regex = "^(?=.*[0-9])"
                        + "(?=.*[A-Z])"
                        + "(?=.*[@#$%^&+=])";
-        if(password.length()>=8 && password.matches(regex)){
-              return true;
-        }
-        else{
-            return false;
-        }
+            System.out.println(password.length()>=8 && password.equals(regex));
+       return true;
+        
+      
     }
-    
-    
-    
-    
-    
+      public void display(){
+            System.out.println("the username =  " + username);
+            System.out.println("the password = " + password);
+            System.out.println("name = " + name);
+            System.out.println("lastname =" + lastname);
+        }
+          public String registerUser(){
+          if (checkUserName() && checkPasswordComplexity()){
+              System.out.println("The username is correctly formatted and Password does meet complexity requirements ");
+          
+          }
+         else{
+           System.out.println("The username is incorrectly formatted Password does not meet complexity requirements ");
 }
+        return null;
+          }    
+             public boolean loginUser(){
+            if(username.equals("ja_m") && password.equals("12#ASdfgh")){
+               return true; 
+            }
+            else{
+                return false;
+            }
+        }
+    
+        
+        }

@@ -11,6 +11,14 @@ package com.mycompany.mypoe;
 public class MyPOE {
 
     public static void main(String[] args) {
-        System.out.println("Enter name: ");
+       
+        LOGIN ab = new LOGIN();
+        ab.Prompt();
+        ab.checkUserName();
+        ab.checkPasswordComplexity();
+        ab.registerUser();
+        ab.loginUser();
+        ab.display();
+       
     }
 }
