@@ -82,5 +82,7 @@ public class LOGIN {
             }
         }
     
-        
+          public void returnLoginStatus(){
+              
+          }
         }
