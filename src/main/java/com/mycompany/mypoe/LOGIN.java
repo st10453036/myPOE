@@ -41,13 +41,20 @@ public class LOGIN {
         //prompt the user to enter password
        System.out.println("Enter password: ");
         password = sc.next(); 
-            System.out.println("");
         String regex = "^(?=.*[0-9])"
-                       + "(?=.*[A-Z])"
-                       + "(?=.*[@#$%^&+=])";
-            System.out.println(password.length()>=8 && password.equals(regex));
-       return true;
-        
+                       + "(?=.*[A-Z])(?=.*[a-z])"
+                       + "(?=.*[@#$%^&+=]).{8,}$";
+        //compiling regex
+        Pattern p = Pattern.compile(regex);
+        if(password == null){
+            return false;
+        }
+      
+            System.out.println(password.length()>=8);
+            System.out.println(password.matches(regex)); 
+     
+        Matcher m =p.matcher(password);
+        return m.matches();
       
     }
       public void display(){
@@ -57,7 +64,7 @@ public class LOGIN {
             System.out.println("lastname =" + lastname);
         }
           public String registerUser(){
-          if (checkUserName() && checkPasswordComplexity()){
+          if (checkUserName() ==true && checkPasswordComplexity()==true){
               System.out.println("The username is correctly formatted and Password does meet complexity requirements ");
           
           }
@@ -67,7 +74,7 @@ public class LOGIN {
         return null;
           }    
              public boolean loginUser(){
-            if(username.equals("ja_m") && password.equals("12#ASdfgh")){
+            if(username.equals(registerUser()) && password.equals(registerUser())){
                return true; 
             }
             else{
