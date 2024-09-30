@@ -19,6 +19,22 @@ public class LOGINTest {
     
     public LOGINTest() {
     }
+
+    @BeforeAll
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterAll
+    public static void tearDownClass() throws Exception {
+    }
+
+    @BeforeEach
+    public void setUp() throws Exception {
+    }
+
+    @AfterEach
+    public void tearDown() throws Exception {
+    }
     
   
 
@@ -82,9 +98,9 @@ public class LOGINTest {
     @Test
     public void testCheckUserName() {
         System.out.println("checkUserName");
-        String username = "kyle!!!!!!!";
+        String username = "kyl_1";
         LOGIN instance = new LOGIN(username , "Ch&&sec@ke99!");
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.checkUserName(username);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -97,9 +113,9 @@ public class LOGINTest {
     @Test
     public void testCheckPasswordComplexity() {
         System.out.println("checkPasswordComplexity");
-        String password = "password";
+        String password = "Ch&&sec@ke99!";
         LOGIN instance =  new LOGIN("kyl_1", password);
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.checkPasswordComplexity(password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -112,10 +128,10 @@ public class LOGINTest {
     @Test
     public void testRegisterUser() {
         System.out.println("registerUser");
-        String username = "kyle!!!!!!!";
-        String password = "password";
+        String username = "ky_1";
+        String password = "Ch&&sec@ke99!";
         LOGIN instance = new LOGIN(username , password);
-        String expResult = "The username is incorrectly formatted, please ensure that the username contains an underscore and is no more than 5 characters in length or Password is incorrectly formatted, please ensure that the password contains at least 8 chatacters,a capital letter ,a number and a special character";
+        String expResult = "The username is successfully captured and Password is successfully captured";
         String result = instance.registerUser(username, password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -128,10 +144,10 @@ public class LOGINTest {
     @Test
     public void testLoginUser() {
         System.out.println("loginUser");
-        String userName = "kyle!!!!!!!";
-        String Password = "password";
+        String userName = "ky_1";
+        String Password = "Ch&&sec@ke99!";
         LOGIN instance = new LOGIN("ky_1","Ch&&sec@ke99!" );
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.loginUser(userName, Password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -144,12 +160,12 @@ public class LOGINTest {
     @Test
     public void testReturnLoginStatus() {
         System.out.println("returnLoginStatus");
-        String userName = "kyle!!!!!!!";
-        String Password = "password";
+        String userName = "ky_1";
+        String Password = "Ch&&sec@ke99!";
         String name = "SAM";
         String lastname = "DAM";
         LOGIN instance =new LOGIN("ky_1","Ch&&sec@ke99!") ;
-        String expResult = "Username or password is incorrect.Please try again!";
+        String expResult =  "Welcome " + name + " "  + lastname +" " + "it is great to see you again";
         String result = instance.returnLoginStatus(userName, Password, name, lastname);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
