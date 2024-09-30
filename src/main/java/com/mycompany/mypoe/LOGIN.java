@@ -65,16 +65,16 @@ public class LOGIN {
         }
           public String registerUser(){
           if (checkUserName() ==true && checkPasswordComplexity()==true){
-              System.out.println("The username is correctly formatted and Password does meet complexity requirements ");
+              System.out.println("The username is successfully captured and Password is successfully captured ");
           
           }
          else{
-           System.out.println("The username is incorrectly formatted Password does not meet complexity requirements ");
+           System.out.println("The username is incorrectly formatted, please ensure that the username contains an underscore and is no more than 5 characters in length or Password is incorrectly formatted, please ensure that the password contains at least 8 chatacters,a capital letter ,a number and a special character");
 }
         return null;
           }    
              public boolean loginUser(){
-            if(username.equals(registerUser()) && password.equals(registerUser())){
+            if(username.equals(username) && password.equals(password)){
                return true; 
             }
             else{
@@ -82,7 +82,16 @@ public class LOGIN {
             }
         }
     
-          public void returnLoginStatus(){
-              
+          public String returnLoginStatus(){
+                 if (loginUser() == true){
+               
+                     System.out.println("Welcome " + name + " "  + lastname +" " + "it is great to see you again");
+            }
+            else{
+                      System.out.println("Username or password is incorrect.Please try again!");
+            }
+        return null;
+        
+        
           }
         }

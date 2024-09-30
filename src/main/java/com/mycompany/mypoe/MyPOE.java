@@ -18,6 +18,7 @@ public class MyPOE {
         ab.checkPasswordComplexity();
         ab.registerUser();
         ab.loginUser();
+        ab.returnLoginStatus();
         ab.display();
        
     }
