@@ -5,6 +5,7 @@
 package com.mycompany.mypoe;
 
 import java.util.regex.*;
+
 /**
  *
  * @author RC_Student_lab
@@ -22,7 +23,7 @@ this.password = password;
     private String password;
    
    
-    public void setUserName(String username){
+   public void setUserName(String username){
         this.username = username;
     }
    public String getUserName(){
@@ -32,7 +33,7 @@ this.password = password;
        return password;
    }
    public void setPassword(String password){
-       this.password = password;
+       this. password = password;
    }
     
      //creating a method
@@ -51,8 +52,8 @@ this.password = password;
             return false;
         }
       
-            System.out.println(password.length()>=8);
-            System.out.println(password.matches(regex)); 
+          //  System.out.println(password.length()>=8);
+          //  System.out.println(password.matches(regex)); 
      
         Matcher m =p.matcher(password);
         return m.matches();
@@ -83,10 +84,16 @@ this.password = password;
         
         
           }
+          
+          
+        
+          
+          
   public void display(String name, String lastname,String userName , String Password){
             System.out.println("the username =  " + userName);
             System.out.println("the password = " + Password);
             System.out.println("name = " + name);
             System.out.println("lastname =" + lastname);
+            
         }
         }
