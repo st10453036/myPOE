@@ -71,37 +71,46 @@ public class MyPOE {
                       3. Quit
                      """;
         String choice =JOptionPane.showInputDialog(options);
-               switch (choice){
-        case "1": JOptionPane.showInputDialog(null, "How many tasks would you like to enter" );
-                     String response;
-    response =JOptionPane.showInputDialog("Enter Task name");
-    TaskName = response;
-    
-   for(int i = 0 ; i< response.length(); i++) {
-        response = JOptionPane.showInputDialog("Enter task number");
-         TaskNumber = Integer.parseInt(response);
-   }
-    
-    
-    
-    
-    
-  
-   // TaskNumber = Integer.parseInt(response);
-    
-    response = JOptionPane.showInputDialog("Enter Task description");
-    TaskDescription = response;
+               switch (choice) {
+    case "1":
+        // prompt user to enter many tasks
+        String taskCountInput = JOptionPane.showInputDialog("How many tasks would you like to enter?");
+        int taskCount = Integer.parseInt(taskCountInput); 
 
-      break;
-        case "2":
-              JOptionPane.showInputDialog(null, "Coming Soon!");
-         break;
-          case "3": 
-               JOptionPane.showInputDialog(null, "Quiting...");
-               System.exit(0);
-               break;
+        // created an array to make tasknum autogenarate
+        String[] newArray = new String[taskCount];
+
+        for (int i = 0; i < newArray.length; i++) {
+        
+            
+            TaskName = JOptionPane.showInputDialog("Task Number " + (i + 1) + ": Enter Task name");
+
+            // prompt user to enter task description
+             TaskDescription = JOptionPane.showInputDialog("Task Number " + (i + 1) + ": Enter Task description");
+
+           
+            newArray[i] = "Task " + (i + 1) + ": " + TaskName + " - " + TaskDescription;
+        }
+
+        //Display the task number, name, and description
+        String allTasks = "";
+        for (int i = 0; i < newArray.length; i++) {
+            allTasks += newArray[i] + "\n";
+        }
+        JOptionPane.showMessageDialog(null, allTasks);
+        break;
+
+    case "2":
+        JOptionPane.showInputDialog(null, "Coming Soon!");
+        break;
+
+    case "3":
+        JOptionPane.showInputDialog(null, "Quitting...");
+        System.exit(0);
+        break;
 }
-         
-    }
+   
+    }       
+    
 }
     }
