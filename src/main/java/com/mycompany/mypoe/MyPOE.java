@@ -27,7 +27,7 @@ public class MyPOE {
          int TaskNumber = 0 ;
           String developerDetails = "";
           int taskDuration = 0;
-         
+         int TaskID = 0;
     
      /*//prompt the user to enter name and lastname
       System.out.println("Enter your name: ");
@@ -86,42 +86,67 @@ public class MyPOE {
         String[] newArray = new String[taskCount];
 
         for (int i = 0; i < newArray.length; i++) {
-        
+          Task op = new Task(TaskName, TaskNumber,TaskDescription ,developerDetails,TaskID,taskDuration);
             
-            TaskName = JOptionPane.showInputDialog("Task Number " + (i) + ": Enter Task name");
+            
+            TaskName = JOptionPane.showInputDialog(" Enter Task name");
 
             // prompt user to enter task description
-             TaskDescription = JOptionPane.showInputDialog("Task Number " + (i) + ": Enter Task description");
+             TaskDescription = JOptionPane.showInputDialog("Enter Task description");
 
+           developerDetails = JOptionPane.showInputDialog( " Enter Task developer details (firstname & surname)");
+           
+           taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter duration (In Hours)"));
+           JOptionPane.showInputDialog(null,op.createTaskID(TaskName, TaskNumber, TaskDescription,developerDetails,taskDuration));
+            
+           
+           
            
             newArray[i] = "Task " + (i ) + ": " + TaskName + " - " + TaskDescription;
-            Task op = new Task(TaskName, TaskNumber,TaskDescription ,developerDetails,taskDuration);
-            
-    op.createTaskID(TaskName, TaskNumber, TaskDescription,developerDetails,taskDuration);
-    
-    
-    JOptionPane.showMessageDialog(null, TaskID);
-    int t = Integer.parseInt(JOptionPane.showInputDialog("choose an option"\n 1: "To do" \n 2. "Done "\n 3:"Doing"));
-     
-    String take = "";
-    if (t == 1){
-        take = "To do";
-    } else if(t==2){
-            take = "Doing";
-        }else if (t == 3){
-            take = "Done";
         }
-    JOptionPane.showMessageDialog(null, take);
-        }
-        
-
-        //Display the task number, name, and description
-        String allTasks = "";
+              String allTasks = "";
         for (int i = 0; i < newArray.length; i++) {
             allTasks += newArray[i] + "\n";
         }
-        JOptionPane.showMessageDialog(null, allTasks);
+
+    
+     
+    JOptionPane.showMessageDialog(null, TaskID);
+
+    
+    
+    
+    
+    
+    
+    while(true){
+        String option2 = """
+                          ======Options=======
+                         1. To do
+                         2.Doing
+                         3.Done
+                        """;
+         String opt = JOptionPane.showInputDialog(option2);
+    switch (opt){
+        case "1":
+   JOptionPane.showMessageDialog(null, "To do");
+    break;
+    
+        case "2":
+        JOptionPane.showMessageDialog(null, "Doing");
         break;
+        
+        case "3":
+        JOptionPane.showMessageDialog(null, "Done");
+        break;
+        }
+        
+    }
+               
+        //Display the task number, name, and description
+        
+       // JOptionPane.showMessageDialog(null, allTasks);
+     //break;
 
     case "2":
         JOptionPane.showInputDialog(null, "Coming Soon!");
