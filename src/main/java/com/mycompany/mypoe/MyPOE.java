@@ -27,10 +27,10 @@ public class MyPOE {
          int TaskNumber = 0 ;
           String developerDetails = "";
           int taskDuration = 0;
-         int TaskID = 0;
+       
     
-     /*//prompt the user to enter name and lastname
-      System.out.println("Enter your name: ");
+     //prompt the user to enter name and lastname
+    /*  System.out.println("Enter your name: ");
         name = sc.next();
         System.out.println("Enter your lastname: ");
         lastname = sc.next();
@@ -39,10 +39,10 @@ public class MyPOE {
        username = sc.next();
         //prompt user to enter password
          System.out.println("Enter password: ");
-         password = sc.next(); */
+         password = sc.next(); 
          
          //calling second class
-       /*    LOGIN ab = new LOGIN(username,password);
+          LOGIN ab = new LOGIN(username,password);
       
      
        //calling register user method
@@ -62,13 +62,14 @@ public class MyPOE {
      //   ab.loginUser(username , password);
         
         while(ab.loginUser(username, password) == true){
-            
+         
         }*/
             //calling the third class
   
-           String message = JOptionPane.showInputDialog("Welcome to EasyKanBan");
+             JOptionPane.showMessageDialog(null,"Welcome to EasyKanBan");
                 
     while(true){
+           Task op = new Task(TaskName, TaskNumber,TaskDescription ,developerDetails,taskDuration);
         String options =  """
                       ======Options=======
                       1.Add tasks
@@ -86,7 +87,7 @@ public class MyPOE {
         String[] newArray = new String[taskCount];
 
         for (int i = 0; i < newArray.length; i++) {
-          Task op = new Task(TaskName, TaskNumber,TaskDescription ,developerDetails,TaskID,taskDuration);
+        
             
             
             TaskName = JOptionPane.showInputDialog(" Enter Task name");
@@ -104,20 +105,19 @@ public class MyPOE {
            
             newArray[i] = "Task " + (i ) + ": " + TaskName + " - " + TaskDescription;
         }
-              String allTasks = "";
-        for (int i = 0; i < newArray.length; i++) {
-            allTasks += newArray[i] + "\n";
-        }
+        //      String allTasks = "";
+        //for (int i = 0; i < newArray.length; i++) {
+        //    allTasks += newArray[i] + "\n";
+       // }
 
     
      
-    JOptionPane.showMessageDialog(null, TaskID);
+  //  JOptionPane.showMessageDialog(null, TaskID);
 
     
     
     
-    
-    
+   
     
     while(true){
         String option2 = """
@@ -129,24 +129,31 @@ public class MyPOE {
          String opt = JOptionPane.showInputDialog(option2);
     switch (opt){
         case "1":
+           
    JOptionPane.showMessageDialog(null, "To do");
-    break;
+      
+   JOptionPane.showMessageDialog(null,op.TaskDetails( TaskName, TaskNumber,TaskDescription, developerDetails, taskDuration) +"\n" +op.createTaskID(TaskName, TaskNumber, TaskDescription, developerDetails, taskDuration) +  "\n" +  "taskStatus: TO DO" );
+
+   break;
     
         case "2":
         JOptionPane.showMessageDialog(null, "Doing");
+        
+         JOptionPane.showMessageDialog(null,op.TaskDetails( TaskName, TaskNumber,TaskDescription, developerDetails, taskDuration) +"\n" +op.createTaskID(TaskName, TaskNumber, TaskDescription, developerDetails, taskDuration) +  "\n" +  "taskStatus:Doing" );
+
         break;
         
         case "3":
         JOptionPane.showMessageDialog(null, "Done");
+        JOptionPane.showMessageDialog(null,op.TaskDetails( TaskName, TaskNumber,TaskDescription, developerDetails, taskDuration) +"\n" +op.createTaskID(TaskName, TaskNumber, TaskDescription, developerDetails, taskDuration) +  "\n" +  "taskStatus:Done" );
+
         break;
         }
+    
         
     }
                
         //Display the task number, name, and description
-        
-       // JOptionPane.showMessageDialog(null, allTasks);
-     //break;
 
     case "2":
         JOptionPane.showInputDialog(null, "Coming Soon!");
