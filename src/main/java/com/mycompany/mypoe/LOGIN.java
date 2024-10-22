@@ -11,10 +11,6 @@ import java.util.regex.*;
  * @author RC_Student_lab
  */
 public class LOGIN{
-    public LOGIN(String username, String password){
-        this.username = username;
-this.password = password;
-    }
 
    //import object scanner
   
@@ -81,14 +77,8 @@ this.password = password;
             else{
                       return "Username or password is incorrect.Please try again!";
             }
-        
-        
           }
-          
-          
-        
-          
-          
+   
   public void display(String name, String lastname,String userName , String Password){
             System.out.println("the username =  " + userName);
             System.out.println("the password = " + Password);

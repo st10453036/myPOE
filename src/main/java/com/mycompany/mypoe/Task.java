@@ -52,8 +52,11 @@ this.TaskDescription = TaskDescription;
      return ("TaskID " + TaskName.charAt(0) + TaskName.charAt(1) + ":" + TaskNumber + ":" + developerDetails.substring(developerDetails.length()-3)).toUpperCase();
      
     }
-public String TaskDetails(String TaskName, int TaskNumber,String TaskDescription, String developerDetails,int taskDuration){
-        return "taskName: " + TaskName + "\n" +" "+ "TaskNumber: "+ TaskNumber + "\n" +" "+ "TaskDescription: " +TaskDescription + "\n" +" "+ "DeveloperDetails: " +developerDetails + "\n" + " "+ "TaskDuration: " +taskDuration;
+public String printTaskDetails(String TaskName, int TaskNumber,String TaskDescription, String developerDetails,int taskDuration, String TaskStatus){
+        return "taskName: " + TaskName + "\n" +" "+ "TaskNumber: "+ TaskNumber + "\n" +" "+ "TaskDescription: " +TaskDescription + "\n" +" "+ "DeveloperDetails: " +developerDetails + "\n" + " "+ "TaskDuration: " +taskDuration +"\n" +"TaskStatus: "+ TaskStatus;
  }
+//public int returnHours(String TaskName, int TaskNumber,String TaskDescription, String developerDetails,int taskDuration ){
+        // return "Total hours" + (taskDuration + taskDuration);
+    // }
 }
 
