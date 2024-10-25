@@ -11,14 +11,7 @@ package com.mycompany.mypoe;
  * @author RC_Student_lab
  */
 public class Task {
-     public Task(String TaskName, int TaskNumber,String TaskDescription, String developerDetails,  int taskDuration){
-        this. TaskName =  TaskName;
-this.TaskNumber = TaskNumber;
-this. developerDetails =  developerDetails;
-
-this.taskDuration = taskDuration;
-this.TaskDescription = TaskDescription;
-    }  
+   
     //declarations
    private String TaskName;
     private int TaskNumber;
@@ -27,7 +20,7 @@ this.TaskDescription = TaskDescription;
   private String developerDetails;
   private int taskDuration;
   
- String getTaskName(){
+ public String getTaskName(){
        return TaskName;
    }
     public int getTaskNumber(){
@@ -47,16 +40,30 @@ this.TaskDescription = TaskDescription;
  
     public boolean checkTaskDescription(String TaskDescription){
       return TaskDescription.length()<=50;
+      
+      
     }
  public String createTaskID(String TaskName, int TaskNumber, String TaskDescription, String developerDetails,  int taskDuration){
      return ("TaskID " + TaskName.charAt(0) + TaskName.charAt(1) + ":" + TaskNumber + ":" + developerDetails.substring(developerDetails.length()-3)).toUpperCase();
      
+     
     }
-public String printTaskDetails(String TaskName, int TaskNumber,String TaskDescription, String developerDetails,int taskDuration, String TaskStatus){
-        return "taskName: " + TaskName + "\n" +" "+ "TaskNumber: "+ TaskNumber + "\n" +" "+ "TaskDescription: " +TaskDescription + "\n" +" "+ "DeveloperDetails: " +developerDetails + "\n" + " "+ "TaskDuration: " +taskDuration +"\n" +"TaskStatus: "+ TaskStatus;
- }
-//public int returnHours(String TaskName, int TaskNumber,String TaskDescription, String developerDetails,int taskDuration ){
-        // return "Total hours" + (taskDuration + taskDuration);
-    // }
+public String printTaskDetails(String TaskName, int TaskNumber,String TaskDescription, String developerDetails,int taskDuration, String taskStatus){
+        return "taskName: " + TaskName + "\n" +" "+ "TaskNumber: "+ TaskNumber + "\n" +" "+ "TaskDescription: " +TaskDescription + "\n" +" "+ "DeveloperDetails: " +developerDetails + "\n" + " "+ "TaskDuration: " +taskDuration +"\n" +"TaskStatus: "+ taskStatus;
+    
 }
+public  int returnTotalHours(int[] taskDurations,String TaskName, int TaskNumber,String TaskDescription, String developerDetails,int taskDuration ){
+         int totalHours = 0;
+        for (int duration : taskDurations) {
+        totalHours += duration; 
+    }
+            this.TaskName =  TaskName;
+this.TaskNumber = TaskNumber;
+this. developerDetails =  developerDetails;
+this.taskDuration = taskDuration;
+this.TaskDescription = TaskDescription;
 
+    return  totalHours;
+   
+}
+}

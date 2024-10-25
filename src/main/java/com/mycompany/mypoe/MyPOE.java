@@ -42,36 +42,37 @@ public class MyPOE {
          password = sc.next(); 
          
          //calling second class
-          LOGIN ab = new LOGIN(username,password);
+          LOGIN ab = new LOGIN();
       
      
        //calling register user method
-        System.out.println( ab.registerUser(username , password));
+        System.out.println( ab.registerUser(name, lastname, username , password));
         
-       if (ab.checkPasswordComplexity(password) && ab.checkUserName(username)){
-            //prompt the user to enter password and username
-            System.out.println("Enter username");
+        System.out.println("====== LOGIN ========");
+       
+        System.out.println("Enter username");
           String  userName = cv.next();
             System.out.println("Enter password");
             String Password = cv.next();
-            //calling the return login status method
-            System.out.println(ab.returnLoginStatus( userName ,Password, name,lastname));
-            //called the display method
-             ab.display( name ,lastname, userName,Password);
-        }
+            
+            boolean loginStats = ab.loginUser(userName, Password);
+            
+            System.out.println(ab.returnLoginStatus(loginStats) );
+        
+     
   
         
-       
+       if(loginStats){
             //calling the third class
         final JDialog dialog = new JDialog();
         dialog.setAlwaysOnTop(true);
             
             
              JOptionPane.showMessageDialog(dialog,"Welcome to EasyKanBan");
-      String[] OptionsToChoose ={"To do","Doing" ,"Done"};
+      String[] optionsToChoose ={"To do","Doing" ,"Done"};
       
     while(ab.loginUser(username, password)){
-           Task op = new Task(TaskName, TaskNumber,TaskDescription ,developerDetails,taskDuration);
+           Task op = new Task();
         String options =  """
                       ======Options=======
                       1.Add tasks
@@ -83,26 +84,44 @@ public class MyPOE {
     case "1":
         // prompt user to enter many tasks
      int Quest = Integer.parseInt(JOptionPane.showInputDialog(dialog, "How many tasks would you like to enter?"));
-    
+ 
         // created an array to make tasknum autogenarate
   Task [] newArray = new Task[Quest];
-
+int[] taskDurations =new int [Quest];
+int totalHours;
 for (int i = 0; i < Quest; i++) {
-        
+  newArray[i] = new Task() ;
+  
  TaskName = JOptionPane.showInputDialog(" Enter Task name");
 
             // prompt user to enter task description
  TaskDescription = JOptionPane.showInputDialog("Enter Task description");
+ boolean check = op.checkTaskDescription(TaskDescription);
+ if(check){
+   JOptionPane.showMessageDialog(dialog, "Task Description is successfully captured");
+ }
+ else {
+       JOptionPane.showMessageDialog(dialog, "Task Description is not successfully captured");
+ }
  developerDetails = JOptionPane.showInputDialog( " Enter Task developer details (firstname & surname)");
            
 taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter duration (In Hours)"));
- JOptionPane.showInputDialog(dialog,op.createTaskID(TaskName, i, TaskDescription,developerDetails,taskDuration));
- String TaskStatus = (String) JOptionPane.showInputDialog(dialog, "Choose task status","Select task status",JOptionPane.QUESTION_MESSAGE,null,OptionsToChoose,OptionsToChoose[2]);
-        
-newArray[i] = new Task (TaskName,i,TaskDescription ,developerDetails,taskDuration);
-JOptionPane.showMessageDialog(dialog, op.printTaskDetails(TaskName, i, TaskDescription, developerDetails, taskDuration,TaskStatus)+"\n" + op.createTaskID(TaskName, i, TaskDescription, developerDetails, taskDuration));
+
+taskDurations[i] =taskDuration;
+
+
+JOptionPane.showMessageDialog(dialog, op.createTaskID(TaskName, i, TaskDescription, developerDetails, taskDuration));
+String taskStatus = (String) JOptionPane.showInputDialog(dialog, "Choose task status","Select task status",JOptionPane.QUESTION_MESSAGE,null,optionsToChoose, optionsToChoose[2]);
+  newArray [i] = new Task ();
+JOptionPane.showMessageDialog(dialog, op.printTaskDetails(TaskName, i, TaskDescription, developerDetails, taskDuration, taskStatus)+ "\n" + op.createTaskID(TaskName, i, TaskDescription, developerDetails, taskDuration));
 }
-  
+totalHours =op.returnTotalHours(taskDurations, TaskName, TaskNumber, TaskDescription, developerDetails, taskDuration);
+
+
+
+JOptionPane.showMessageDialog(dialog, "total hours is: " + totalHours);
+
+    
        break;    
         //Display the task number, name, and description
 
@@ -117,9 +136,8 @@ JOptionPane.showMessageDialog(dialog, op.printTaskDetails(TaskName, i, TaskDescr
               
 }
          dialog.dispose();
-
     }       
     
     }
 }
-    
+}

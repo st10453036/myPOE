@@ -114,7 +114,7 @@ public class LOGINTest {
     public void testCheckPasswordComplexity() {
         System.out.println("checkPasswordComplexity");
         String password = "Ch&&sec@ke99!";
-        LOGIN instance =  new LOGIN("kyl_1", password);
+        LOGIN instance =  new LOGIN();
         boolean expResult = true;
         boolean result = instance.checkPasswordComplexity(password);
         assertEquals(expResult, result);
@@ -130,7 +130,7 @@ public class LOGINTest {
         System.out.println("registerUser");
         String username = "ky_1";
         String password = "Ch&&sec@ke99!";
-        LOGIN instance = new LOGIN(username , password);
+        LOGIN instance = new LOGIN();
         String expResult = "The username is successfully captured and Password is successfully captured";
         String result = instance.registerUser(username, password);
         assertEquals(expResult, result);
@@ -146,7 +146,7 @@ public class LOGINTest {
         System.out.println("loginUser");
         String userName = "ky_1";
         String Password = "Ch&&sec@ke99!";
-        LOGIN instance = new LOGIN("ky_1","Ch&&sec@ke99!" );
+        LOGIN instance = new LOGIN();
         boolean expResult = true;
         boolean result = instance.loginUser(userName, Password);
         assertEquals(expResult, result);
@@ -164,7 +164,7 @@ public class LOGINTest {
         String Password = "Ch&&sec@ke99!";
         String name = "SAM";
         String lastname = "DAM";
-        LOGIN instance =new LOGIN("ky_1","Ch&&sec@ke99!") ;
+        LOGIN instance =new LOGIN() ;
         String expResult =  "Welcome " + name + " "  + lastname +" " + "it is great to see you again";
         String result = instance.returnLoginStatus(userName, Password, name, lastname);
         assertEquals(expResult, result);
