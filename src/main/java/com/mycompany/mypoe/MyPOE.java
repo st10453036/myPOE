@@ -98,10 +98,10 @@ for (int i = 0; i < Quest; i++) {
  TaskDescription = JOptionPane.showInputDialog("Enter Task description");
  boolean check = op.checkTaskDescription(TaskDescription);
  if(check){
-   JOptionPane.showMessageDialog(dialog, "Task Description is successfully captured");
+   JOptionPane.showMessageDialog(dialog, "Tasks successfully captured");
  }
  else {
-       JOptionPane.showMessageDialog(dialog, "Task Description is not successfully captured");
+       JOptionPane.showMessageDialog(dialog, "Please enter a task dscription of less than 50 characters");
  }
  developerDetails = JOptionPane.showInputDialog( " Enter Task developer details (firstname & surname)");
            
@@ -126,7 +126,7 @@ JOptionPane.showMessageDialog(dialog, "total hours is: " + totalHours);
         //Display the task number, name, and description
 
     case "2":
-        JOptionPane.showInputDialog(dialog, "Coming Soon!");
+        JOptionPane.showMessageDialog(dialog, "Coming Soon!");
         break;
 
     case "3":
