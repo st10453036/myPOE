@@ -46,8 +46,12 @@ public class MyPOE {
       
      
        //calling register user method
-        System.out.println( ab.registerUser(name, lastname, username , password));
-        
+       System.out.println( ab.registerUser(name, lastname, username , password));
+        if(!ab.checkUserName(username) || !ab.checkPasswordComplexity(password)){
+
+            return;
+        }
+                
         System.out.println("====== LOGIN ========");
        
         System.out.println("Enter username");
@@ -94,15 +98,18 @@ for (int i = 0; i < Quest; i++) {
   
  TaskName = JOptionPane.showInputDialog(" Enter Task name");
 
-            // prompt user to enter task description
+ 
+
+do {
+        // prompt user to enter task description
  TaskDescription = JOptionPane.showInputDialog("Enter Task description");
- boolean check = op.checkTaskDescription(TaskDescription);
- if(check){
-   JOptionPane.showMessageDialog(dialog, "Tasks successfully captured");
- }
- else {
-       JOptionPane.showMessageDialog(dialog, "Please enter a task dscription of less than 50 characters");
- }
+  boolean check = op.checkTaskDescription(TaskDescription);
+}
+while (TaskDescription.length ()>50);
+
+ 
+
+ 
  developerDetails = JOptionPane.showInputDialog( " Enter Task developer details (firstname & surname)");
            
 taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter duration (In Hours)"));
@@ -115,13 +122,13 @@ String taskStatus = (String) JOptionPane.showInputDialog(dialog, "Choose task st
   newArray [i] = new Task ();
 JOptionPane.showMessageDialog(dialog, op.printTaskDetails(TaskName, i, TaskDescription, developerDetails, taskDuration, taskStatus)+ "\n" + op.createTaskID(TaskName, i, TaskDescription, developerDetails, taskDuration));
 }
+
 totalHours =op.returnTotalHours(taskDurations, TaskName, TaskNumber, TaskDescription, developerDetails, taskDuration);
 
 
 
 JOptionPane.showMessageDialog(dialog, "total hours is: " + totalHours);
-
-    
+   
        break;    
         //Display the task number, name, and description
 
@@ -133,11 +140,15 @@ JOptionPane.showMessageDialog(dialog, "total hours is: " + totalHours);
         JOptionPane.showMessageDialog(dialog, "Quitting...");
         System.exit(0);
         break;
-              
+                 
 }
          dialog.dispose();
     }       
-    
     }
-}
-}
+    }
+    }
+
+    
+
+
+

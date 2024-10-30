@@ -4,6 +4,8 @@
  */
 package com.mycompany.mypoe;
 
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -20,31 +22,22 @@ public class Task {
   private String developerDetails;
   private int taskDuration;
   
- public String getTaskName(){
-       return TaskName;
-   }
-    public int getTaskNumber(){
-       return TaskNumber;
-   }
-     public String getTaskDescription(){
-       return TaskDescription;
-   }
-  
-    public String getDeveloperDetails(){
-       return developerDetails;
-   }
-   
-    public int getTaskDuration(){
-       return taskDuration;
-   }
- 
+
     public boolean checkTaskDescription(String TaskDescription){
-      return TaskDescription.length()<=50;
-      
+    //  return //askDescription.length()<=50;
+       if(TaskDescription.length()<=50){
+   JOptionPane.showMessageDialog(null, "Tasks successfully captured");
+   return true;
+ }
+ else {
+       JOptionPane.showMessageDialog(null, "Please enter a task description of less than 50 characters");
+       return false;
+ }
       
     }
  public String createTaskID(String TaskName, int TaskNumber, String TaskDescription, String developerDetails,  int taskDuration){
-   return ("TaskID " + TaskName.charAt(0) + TaskName.charAt(1) + ":" + TaskNumber + ":" + developerDetails.substring(developerDetails.length()-3)).toUpperCase();
+   //return ("TaskID " + TaskName.charAt(0) + TaskName.charAt(1) + ":" + TaskNumber + ":" + developerDetails.substring(developerDetails.length()-3)).toUpperCase();
+   return (TaskName.substring(0, 2)+ ":" + TaskNumber + ":" + developerDetails.substring(developerDetails.length()-3)).toUpperCase();
      
      
     }
